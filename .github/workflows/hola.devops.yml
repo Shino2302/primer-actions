@@ -1,0 +1,24 @@
+name: Hola DevOps
+
+on:
+  push:
+    branches: [main]
+  pull_request: [main]
+
+jobs:
+  saludar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Imprimir mensaje de bienvenida
+        run: echo "¡Hola, DevOps!"
+
+      - name: Mostrar información del sistema
+        run: |
+          echo "===Información del Sistema==="
+          echo "Usuario: $(whoami)"
+          echo "Directorio actiual: $(pwd)"
+          echo "Fecha y hora: $(date)"
+          echo "Versión de Ubuntu: $(lsb_release -d)"
